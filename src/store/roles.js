@@ -1,10 +1,17 @@
 export default {
   namespaced: true,
   state: {
-    roles: []
+    roles: [{
+      role: 'ADMIN',
+      id: 1,
+      permissions: {
+        roles: 2,
+        users: 0
+      }
+    }]
   },
   getters: {
-
+    getRoles: (state) => state.roles
   },
   mutations: {
     SET_ROLES: (state, payload) => {
@@ -31,5 +38,22 @@ export default {
     }
   },
   actions: {
+    deleteRole: async ({ commit }, role) => {
+      commit('DELETE_ROLE', role)
+    },
+    addRole: async ({ commit }, newRole, state) => {
+      if (newRole.role !== state.roles.role) {
+        commit('ADD_ROLE', newRole)
+        return true
+      }
+      return false
+    },
+    modifyRole: async ({ commit, rootState }, role) => {
+      if (rootState.loggedUser.role.permissions.roles === 2) {
+        commit('MODIFY_ROLE', role)
+        return true
+      }
+      return false
+    }
   }
 }

@@ -7,7 +7,18 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    loggedUser: null
+    loggedUser: {
+      name: 'Exe',
+      email: 'aisdaisd@asdasi.com',
+      role: {
+        id: 1,
+        role: 'admin',
+        permissions: {
+          roles: 2,
+          users: 2
+        }
+      }
+    }
   },
   getters: {
   },
