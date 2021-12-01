@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+    <router-link to="/login">adasdasdasd</router-link>
+    <button @click="test4">asdasdasdasdadadpene</button>
     <table>
       <tr>
         <th>nombre</th>
@@ -40,7 +42,8 @@ export default {
   methods: {
     ...mapActions({
       test2: 'roles/addRole',
-      test3: 'roles/modifyRole'
+      test3: 'roles/modifyRole',
+      test4: 'checkLogged'
     })
   }
 }

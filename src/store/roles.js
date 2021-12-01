@@ -38,9 +38,6 @@ export default {
     }
   },
   actions: {
-    deleteRole: async ({ commit }, role) => {
-      commit('DELETE_ROLE', role)
-    },
     addRole: async ({ commit }, newRole, state) => {
       if (newRole.role !== state.roles.role) {
         commit('ADD_ROLE', newRole)
@@ -49,8 +46,15 @@ export default {
       return false
     },
     modifyRole: async ({ commit, rootState }, role) => {
-      if (rootState.loggedUser.role.permissions.roles === 2) {
+      if (rootState.loggedRole.role.permissions.roles === 2) {
         commit('MODIFY_ROLE', role)
+        return true
+      }
+      return false
+    },
+    deleteRole: async ({ commit, rootState }, role) => {
+      if (rootState.loggedRole.role.permissions.roles === 2) {
+        commit('DELETE_USER', role)
         return true
       }
       return false
