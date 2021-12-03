@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <button v-b-modal.users-modal :modalId="'users-modal'">Modal Test</button>
-    <button @click="test5(test25[0])">test</button>
-    <p>{{ test25 }}</p>
+    <button @click="deleteUser(roles[0])">test</button>
+    <p>{{ roles }}</p>
     <UsersModal :title="'New User'"/>
     <table>
       <tr>
@@ -10,14 +10,14 @@
         <th>id</th>
         <th>permisos</th>
       </tr>
-      <tr v-for="item in test" :key="item.id">
+      <tr v-for="item in roles" :key="item.id">
         <td>{{ item.role }}</td>
         <td>{{ item.id }}</td>
         <td>{{ item.permissions}}</td>
         <button v-b-modal.modal-2>EL EXEQUIEL ES UN RETRASDAO</button>
       </tr>
     </table>
-    <b-modal id="modal-2" title="Modifica el rol" cancel-variant="danger" ok-variant="success" @ok="test3({role: name, id: 1, permissions: valores})">
+    <b-modal id="modal-2" title="Modifica el rol" cancel-variant="danger" ok-variant="success" @ok="modifyRole({role: name, id: 1, permissions: valores})">
       <b-form>
         <label for="txt_name" class="mb-2">Ingrese su nombre</label>
         <b-form-input id="txt_name" class="mb-3" v-model="name" :value="name"></b-form-input>
@@ -42,16 +42,16 @@ export default {
   }),
   computed: {
     ...mapGetters({
-      test: 'roles/getRoles',
-      test25: 'users/getUsers'
+      roles: 'roles/getRoles',
+      users: 'users/getUsers'
     })
   },
   methods: {
     ...mapActions({
-      test2: 'roles/addRole',
-      test3: 'roles/modifyRole',
-      test4: 'checkLogged',
-      test5: 'users/deleteUser'
+      addRole: 'roles/addRole',
+      modifyRole: 'roles/modifyRole',
+      checkLogged: 'checkLogged',
+      deleteUser: 'users/deleteUser'
     })
   }
 }
