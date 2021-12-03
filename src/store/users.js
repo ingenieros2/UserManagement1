@@ -1,10 +1,10 @@
 export default {
   namespaced: true,
   state: {
-    users: ['asijdiasjdiasdijasidj']
+    users: [{ name: 'Vachu', email: 'vachucrack@gmail.com', logged: false }]
   },
   getters: {
-
+    getUsers: (state) => state.users
   },
   mutations: {
     ADD_USER: (state, newUser) => {

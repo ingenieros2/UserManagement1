@@ -1,7 +1,9 @@
 <template>
   <div class="home">
-    <router-link to="/login">adasdasdasd</router-link>
-    <button @click="test4">asdasdasdasdadadpene</button>
+    <button v-b-modal.users-modal :modalId="'users-modal'">Modal Test</button>
+    <button @click="test5(test25[0])">test</button>
+    <p>{{ test25 }}</p>
+    <UsersModal :title="'New User'"/>
     <table>
       <tr>
         <th>nombre</th>
@@ -28,22 +30,28 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import UsersModal from '../components/UsersModal.vue'
 export default {
   name: 'Home',
+  components: {
+    UsersModal
+  },
   data: () => ({
     name: '',
     valores: ''
   }),
   computed: {
     ...mapGetters({
-      test: 'roles/getRoles'
+      test: 'roles/getRoles',
+      test25: 'users/getUsers'
     })
   },
   methods: {
     ...mapActions({
       test2: 'roles/addRole',
       test3: 'roles/modifyRole',
-      test4: 'checkLogged'
+      test4: 'checkLogged',
+      test5: 'users/deleteUser'
     })
   }
 }
