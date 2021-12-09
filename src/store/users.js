@@ -25,6 +25,19 @@ export default {
         usersCopy.splice(foundUser, 1)
         state.users = usersCopy
       }
+    },
+    MODIFY_LOGGED: (state, user) => {
+      const usersCopy = [...state.users]
+      const foundUser = usersCopy.findIndex(el => el.email === user.email)
+      if (foundUser !== -1) {
+        if (usersCopy.logged === true) {
+          usersCopy.logged = false
+          state.users = usersCopy
+        } else {
+          usersCopy.logged = true
+          state.users = usersCopy
+        }
+      }
     }
   },
   actions: {
@@ -53,6 +66,10 @@ export default {
         return true
       }
       return false
+    },
+    modifyLogged: async ({ commit, state, dispatch }, user) => {
+      commit('MODIFY_USER', user)
+      dispatch('setLoggedUser', state.users, { root: true })
     }
   }
 }

@@ -8,8 +8,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     loggedUser: {
-      name: 'Exe',
-      email: 'aisdaisd@asdasi.com',
+      name: 'Vachu',
+      email: 'vachucrack@gmail.com',
       logged: false,
       role: {
         id: 1,
@@ -22,6 +22,7 @@ export default new Vuex.Store({
     }
   },
   getters: {
+    getUser: (state) => state.loggedUser
   },
   mutations: {
     SET_LOGGED_USER: (state, newUser) => {
@@ -33,6 +34,10 @@ export default new Vuex.Store({
   actions: {
     checkLogged: async ({ commit, rootState }) => {
       commit('CHECK_LOGGED', rootState.users.users)
+    },
+    setLoggedUser: async ({ commit, rootState }) => {
+      const user = rootState.users.users.find(e => e.logged === true)
+      commit('SET_LOGGED_USER', user)
     }
   },
   modules: {

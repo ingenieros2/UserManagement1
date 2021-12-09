@@ -25,16 +25,20 @@
         <b-form-input id="txt_party" class="mb-3" v-model="valores" :value="valores"></b-form-input>
       </b-form>
     </b-modal>
+    <AsideMenu></AsideMenu>
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import UsersModal from '../components/UsersModal.vue'
+import AsideMenu from '../components/AsideMenu.vue'
+
 export default {
   name: 'Home',
   components: {
-    UsersModal
+    UsersModal,
+    AsideMenu
   },
   data: () => ({
     name: '',
