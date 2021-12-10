@@ -1,7 +1,10 @@
 export default {
   namespaced: true,
   state: {
-    users: [{ name: 'Vachu', email: 'vachucrack@gmail.com', logged: false }]
+    users: [{
+      name: 'Vachu',
+      email: 'vachucrack@gmail.com'
+    }]
   },
   getters: {
     getUsers: (state) => state.users
