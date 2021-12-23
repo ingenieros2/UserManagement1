@@ -66,7 +66,10 @@ export default {
         el.name.toLowerCase().includes(this.filters.name.toLowerCase()) &&
         el.email.toLowerCase().includes(this.filters.email.toLowerCase()) &&
         (el.role === this.filters.role || this.filters.role === 0)
-      ))
+      )).map(el => {
+        el.role = this.roles.find(role => role.id === el.role)?.role || 'Not Specified'
+        return el
+      })
     }
   }
 }

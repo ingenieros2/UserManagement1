@@ -3,7 +3,8 @@ export default {
   state: {
     users: [{
       name: 'Vachu',
-      email: 'vachucrack@gmail.com'
+      email: 'vachucrack@gmail.com',
+      role: 2
     }]
   },
   getters: {
