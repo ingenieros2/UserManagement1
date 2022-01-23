@@ -2,11 +2,11 @@ export default {
   namespaced: true,
   state: {
     roles: [{
-      role: 'ADMIN',
+      role: 'Admin',
       id: 1,
       permissions: {
         roles: 2,
-        users: 0
+        users: 2
       }
     }]
   },

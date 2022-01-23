@@ -10,10 +10,9 @@ export default new Vuex.Store({
     loggedUser: {
       name: 'Vachu',
       email: 'vachucrack@gmail.com',
-      logged: false,
       role: {
         id: 1,
-        role: 'admin',
+        role: 'Admin',
         permissions: {
           roles: 2,
           users: 2
@@ -27,8 +26,6 @@ export default new Vuex.Store({
   mutations: {
     SET_LOGGED_USER: (state, newUser) => {
       state.loggedUser = newUser
-    },
-    CHECK_LOGGED: (user) => {
     }
   },
   actions: {

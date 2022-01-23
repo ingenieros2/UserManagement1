@@ -12,8 +12,8 @@
          </b-form-group>
 
           <b-form-group label="Role">
-            <b-form-select v-model="selected" v-for="item in roles" :key="item.id">
-              <b-form-select-option :value="item.id">{{ item.role }}</b-form-select-option>
+            <b-form-select v-model="selected" >
+              <b-form-select-option v-for="item in roles" :key="item.id" :value="item.id">{{ item.role }}</b-form-select-option>
             </b-form-select>
           </b-form-group>
         </b-col>
@@ -71,7 +71,7 @@ export default {
     },
     phone: {
       type: Number,
-      default: 123
+      default: 0
     },
     image: {
       type: String,
